@@ -17,8 +17,9 @@ export function useSeatMapSocket(eventInstanceId, onUpdate) {
   const clientRef = useRef(null);
 
   useEffect(() => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080';
     const client = new Client({
-      webSocketFactory: () => new SockJS('http://localhost:8080/ws'),
+      webSocketFactory: () => new SockJS(`${backendUrl}/ws`),
       reconnectDelay: 3000, // auto-reconnect if the connection drops
       onConnect: () => {
         setConnected(true);

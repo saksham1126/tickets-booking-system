@@ -1,4 +1,5 @@
-const API_BASE = 'http://localhost:8080/api';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080';
+const API_BASE = `${BACKEND_URL}/api`;
 
 // Helper: build headers with optional auth token
 function authHeaders(token) {

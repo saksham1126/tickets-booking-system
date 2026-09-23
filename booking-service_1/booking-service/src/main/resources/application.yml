@@ -1,19 +1,19 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 spring:
   application:
     name: booking-service
 
   datasource:
-    url: jdbc:mysql://localhost:3306/booking_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: booking_user
-    password: booking_pass
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/booking_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:booking_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:booking_pass}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: validate   # schema managed via migration tool (Flyway/Liquibase) in real setups
+      ddl-auto: validate   # schema managed via migration scripts
     properties:
       hibernate:
         format_sql: true
@@ -21,7 +21,7 @@ spring:
     show-sql: false
 
 redis:
-  address: redis://localhost:6379
+  address: ${REDIS_ADDRESS:redis://localhost:6379}
 
 logging:
   level:
@@ -29,9 +29,9 @@ logging:
     org.hibernate.SQL: WARN
 
 jwt:
-  secret: dGlja2V0cy1ib29raW5nLXN5c3RlbS1qd3Qtc2VjcmV0LWtleS1mb3ItaG1hYy1zaGEyNTYtYWxnb3JpdGht
-  expiration-ms: 86400000
+  secret: ${JWT_SECRET:dGlja2V0cy1ib29raW5nLXN5c3RlbS1qd3Qtc2VjcmV0LWtleS1mb3ItaG1hYy1zaGEyNTYtYWxnb3JpdGht}
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000}
 
 razorpay:
-  key-id: rzp_test_TfZIMGmHkbsDiy
-  key-secret: UG2gsSo45ac8vjiiPDrBLi4f
+  key-id: ${RAZORPAY_KEY_ID:rzp_test_TfZIMGmHkbsDiy}
+  key-secret: ${RAZORPAY_KEY_SECRET:UG2gsSo45ac8vjiiPDrBLi4f}

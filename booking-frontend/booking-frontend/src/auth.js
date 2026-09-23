@@ -1,4 +1,5 @@
-const API_BASE = 'http://localhost:8080/api/auth';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8080';
+const API_BASE = `${BACKEND_URL}/api/auth`;
 
 export async function register({ name, mobileNumber, password }) {
   const res = await fetch(`${API_BASE}/register`, {
