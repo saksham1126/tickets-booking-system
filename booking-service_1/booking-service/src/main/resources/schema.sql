@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS app_user (
     email         VARCHAR(255) UNIQUE,
     name          VARCHAR(255),
     mobile_number VARCHAR(15) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL
+    password_hash VARCHAR(255) NOT NULL,
+    role          VARCHAR(20) NOT NULL DEFAULT 'USER'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS seat (

@@ -11,9 +11,13 @@ spring:
     password: ${SPRING_DATASOURCE_PASSWORD:booking_pass}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  sql:
+    init:
+      mode: always
+
   jpa:
     hibernate:
-      ddl-auto: validate   # schema managed via migration scripts
+      ddl-auto: update   # automatically aligns entity schema in cloud
     properties:
       hibernate:
         format_sql: true
