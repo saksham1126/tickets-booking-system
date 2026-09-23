@@ -44,10 +44,10 @@ CREATE TABLE IF NOT EXISTS seat_inventory (
     hold_expires_at   DATETIME,
     version           BIGINT NOT NULL DEFAULT 0,
     UNIQUE KEY uq_seat_inv (event_instance_id, seat_id),
+    INDEX idx_seat_inv_status (event_instance_id, status),
     CONSTRAINT fk_inv_event FOREIGN KEY (event_instance_id) REFERENCES event_instance(id),
     CONSTRAINT fk_inv_seat FOREIGN KEY (seat_id) REFERENCES seat(id)
 ) ENGINE=InnoDB;
-CREATE INDEX idx_seat_inv_status ON seat_inventory(event_instance_id, status);
 
 CREATE TABLE IF NOT EXISTS booking (
     id                  BIGINT AUTO_INCREMENT PRIMARY KEY,
