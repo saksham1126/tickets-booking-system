@@ -1,0 +1,430 @@
+.payment-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+.payment-modal {
+  background: #121212;
+  border: 1px solid #262626;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.payment-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #222222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-brand-badge {
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  background: #ffffff;
+  color: #0a0a0a;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.payment-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.payment-close {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.payment-close:hover {
+  color: #ffffff;
+}
+
+/* Order Summary */
+.payment-summary {
+  background: #181818;
+  border-bottom: 1px solid #222222;
+  padding: 16px 24px;
+}
+
+.summary-movie {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.summary-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.summary-details {
+  font-size: 13px;
+  color: #8a8a8a;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-badge {
+  font-size: 12px;
+  background: #262626;
+  color: #e5e5e5;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+}
+
+.summary-lines {
+  border-top: 1px dashed #2a2a2a;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  color: #8a8a8a;
+}
+
+.summary-total {
+  border-top: 1px solid #333333;
+  padding-top: 8px;
+  margin-top: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+/* Payment Methods Tabs */
+.payment-tabs {
+  display: flex;
+  border-bottom: 1px solid #222222;
+  padding: 0 16px;
+  background: #141414;
+}
+
+.payment-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #8a8a8a;
+  padding: 14px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  transition: color 0.15s ease;
+  font-family: inherit;
+}
+
+.payment-tab:hover {
+  color: #ffffff;
+}
+
+.payment-tab.is-active {
+  color: #ffffff;
+}
+
+.payment-tab.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.payment-body {
+  padding: 24px;
+  flex: 1;
+}
+
+/* Method 1: Razorpay */
+.razorpay-panel {
+  text-align: center;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.razorpay-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1c1c1c;
+  border: 1px solid #2e2e2e;
+  color: #e5e5e5;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.razorpay-logo-badge .badge-dot {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+.razorpay-desc {
+  font-size: 14px;
+  color: #999999;
+  max-width: 400px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.razorpay-supported {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: #777777;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.supported-tag {
+  background: #181818;
+  border: 1px solid #282828;
+  color: #a3a3a3;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.razorpay-btn {
+  width: 100%;
+  background: #ffffff;
+  color: #0a0a0a;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.razorpay-btn:hover:not(:disabled) {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.razorpay-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.razorpay-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Method 2: UPI */
+.upi-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.upi-apps-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.upi-app-btn {
+  background: #1a1a1a;
+  border: 1px solid #282828;
+  color: #d1d5db;
+  padding: 12px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.upi-app-btn:hover,
+.upi-app-btn.is-selected {
+  border-color: #ffffff;
+  background: #242424;
+  color: #ffffff;
+}
+
+.upi-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upi-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8a8a8a;
+}
+
+.upi-field {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #282828;
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+.upi-field:focus {
+  border-color: #555555;
+}
+
+/* Method 3: Cards */
+.card-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.card-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8a8a8a;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-input {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #282828;
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+.card-input:focus {
+  border-color: #555555;
+}
+
+/* Action button */
+.payment-submit-btn {
+  width: 100%;
+  background: #ffffff;
+  color: #0a0a0a;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.15s ease;
+  font-family: inherit;
+}
+
+.payment-submit-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.payment-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.payment-secure-badge {
+  text-align: center;
+  font-size: 11px;
+  color: #666666;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.payment-error {
+  color: #f87171;
+  font-size: 13px;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}

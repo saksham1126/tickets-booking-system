@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: booking-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/booking_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: booking_user
+    password: booking_pass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate   # schema managed via migration tool (Flyway/Liquibase) in real setups
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+
+redis:
+  address: redis://localhost:6379
+
+logging:
+  level:
+    com.example.booking: INFO
+    org.hibernate.SQL: WARN
+
+jwt:
+  secret: dGlja2V0cy1ib29raW5nLXN5c3RlbS1qd3Qtc2VjcmV0LWtleS1mb3ItaG1hYy1zaGEyNTYtYWxnb3JpdGht
+  expiration-ms: 86400000
+
+razorpay:
+  key-id: rzp_test_TfZIMGmHkbsDiy
+  key-secret: UG2gsSo45ac8vjiiPDrBLi4f

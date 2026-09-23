@@ -1,0 +1,37 @@
+# Dependency Directories
+node_modules/
+**/node_modules/
+
+# Build Output
+dist/
+**/dist/
+target/
+**/target/
+*.jar
+*.war
+
+# Environment & Secret Configurations
+.env.local
+.env.*.local
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+
+# OS Generated Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Log Files
+*.log
+logs/
+**/logs/
